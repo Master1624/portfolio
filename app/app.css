@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "transition-style";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
