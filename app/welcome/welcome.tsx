@@ -6,7 +6,7 @@ export function Welcome() {
   return (
     <div
       transition-style="in:circle:bottom-right"
-      className="flex flex-col items-center justify-center h-screen space-y-1.5"
+      className="flex flex-col items-center justify-center h-screen space-y-2"
     >
       <div>
         <h1>{t("welcome.title")}</h1>
