@@ -11,6 +11,8 @@ import type { Route } from "./+types/root";
 import "./i18n";
 import "./app.css";
 import { Topbar } from "./components/Topbar";
+import { useLoading } from "./hooks/useLoading";
+import { Loader } from "./components/Loader";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -44,8 +46,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const showLoader = useLoading();
   return (
     <>
+      {showLoader && <Loader />}
       <Topbar />
       <Outlet />
     </>
