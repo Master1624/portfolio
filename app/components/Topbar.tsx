@@ -10,15 +10,14 @@ export function Topbar() {
     (lng) => lng !== i18n.language
   );
 
-  const handleLanguageChange = () => {
-    navigate("/", { replace: true });
+  const handleLanguageChange = async () => {
+    await navigate("/", { replace: true });
     i18n.changeLanguage(otherLanguage);
   };
 
   return (
     <Card className="fixed top-0 w-full z-10">
-      <CardContent className="flex w-full justify-between items-center">
-        <p>Topbar</p>
+      <CardContent className="flex w-full justify-end items-center">
         <Button onClick={handleLanguageChange}>{otherLanguage}</Button>
       </CardContent>
     </Card>
