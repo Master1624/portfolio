@@ -1,4 +1,8 @@
 {
+  "about": {
+    "description": "Desarrollador frontend con más de 5 años de experiencia en la creación de aplicaciones web escalables y de alto rendimiento, con más de 3 años de experiencia en ReactJS, JavaScript (ES6) y TypeScript. Mi trayectoria incluye el diseño, desarrollo e implementación de soluciones tecnológicas, con especial énfasis en la integración de API, la optimización de la interfaz de usuario y la automatización de procesos. He liderado iniciativas clave en entornos dinámicos, colaborando con equipos multifuncionales y garantizando la entrega de productos eficientes y escalables. Mi objetivo es aplicar mi experiencia y mi enfoque en la resolución de problemas, la resiliencia y la mejora continua para innovar y crear experiencias digitales impactantes, asumiendo nuevos retos que aporten valor a través del código.",
+    "title": "Desarrollador Frontend"
+  },
   "common": {
     "loading": "Cargando"
   },

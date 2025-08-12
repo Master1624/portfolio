@@ -1,0 +1,28 @@
+@import "transition-style";
+@import "https://unpkg.com/transition-style/transition.hackpack.min.css";
+
+@keyframes circle-swoop {
+  from {
+    clip-path: var(--circle-top-right-out);
+  }
+  to {
+    clip-path: var(--circle-bottom-right-in);
+  }
+}
+
+[transition-style="in:custom:circle"] {
+  --transition__duration: 1.5s;
+  --transition__easing: ease-in-out;
+  animation-name: circle-swoop;
+}
+
+@media (width < 30rem) {
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    text-align: justify;
+  }
+}

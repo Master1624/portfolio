@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 export function Welcome() {
   const { t } = useTranslation();
@@ -13,7 +14,9 @@ export function Welcome() {
         <p>{t("welcome.description")}</p>
       </div>
       <div>
-        <Button>Botón 1</Button>
+        <Button>
+          <Link to="/about">About</Link>
+        </Button>
         <Button>Botón 2</Button>
       </div>
     </div>
