@@ -1,6 +1,7 @@
 import { Button, Card, CardContent } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router";
+import { navbarLinks } from "~/constants/links";
 
 export function Topbar() {
   const navigate = useNavigate();
@@ -17,11 +18,16 @@ export function Topbar() {
   };
 
   return (
-    <Card className="fixed top-0 w-full z-10">
+    <Card className="fixed top-0 w-full z-20 bg-slate-950!">
       <CardContent className="flex w-full justify-between items-center">
-        <Button>
-          <Link to="/">{t("common.home")}</Link>
-        </Button>
+        {navbarLinks.map((link) => (
+          <Button
+            key={link.name}
+            className=" text-white!"
+          >
+            <Link to={link.path}>{t(link.translationKey)}</Link>
+          </Button>
+        ))}
         <>
           <Button onClick={handleLanguageChange}>{otherLanguage}</Button>
         </>

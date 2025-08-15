@@ -4,6 +4,7 @@
     "title": "Frontend Developer"
   },
   "common": {
+    "about": "About",
     "home": "Home",
     "loading": "Loading"
   },
