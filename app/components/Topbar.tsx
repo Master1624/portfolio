@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 
 export function Topbar() {
   const navigate = useNavigate();
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const { pathname } = useLocation();
 
   const otherLanguage = Object.keys(i18n.options.resources || {}).find(
@@ -20,7 +20,7 @@ export function Topbar() {
     <Card className="fixed top-0 w-full z-10">
       <CardContent className="flex w-full justify-between items-center">
         <Button>
-          <Link to="/">Home</Link>
+          <Link to="/">{t("common.home")}</Link>
         </Button>
         <>
           <Button onClick={handleLanguageChange}>{otherLanguage}</Button>
