@@ -4,6 +4,8 @@
     "title": "Desarrollador Frontend"
   },
   "common": {
+    "about": "Acerca de",
+    "home": "Inicio",
     "loading": "Cargando"
   },
   "welcome": {

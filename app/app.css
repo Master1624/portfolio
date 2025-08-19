@@ -1,16 +1,15 @@
 @import "tailwindcss";
 @import "transition-style";
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color-scheme: light dark;
 }
 
-html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  @apply bg-white text-slate-950 dark:bg-slate-950 dark:text-gray-100;
+  transition: background-color 0.3s, color 0.3s;
 }
