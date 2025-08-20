@@ -1,32 +1,33 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigation } from "react-router";
 
-export function useLoading(minTime: number = 1000): boolean {
-  const navigation = useNavigation();
+export function useLoading(minTime: number = 1000): [boolean, () => void] {
   const [showLoader, setShowLoader] = useState(false);
   const startTimeRef = useRef<number | null>(null);
+  const timeoutRef = useRef<number | null>(null);
+
+  const clearExistingTimeout = () => {
+    if (timeoutRef.current !== null) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  const triggerLoading = () => {
+    clearExistingTimeout();
+    setShowLoader(true);
+    startTimeRef.current = Date.now();
+
+    timeoutRef.current = window.setTimeout(() => {
+      setShowLoader(false);
+      timeoutRef.current = null;
+    }, minTime);
+  };
 
   useEffect(() => {
-    if (navigation.state === "loading") {
-      setShowLoader(true);
-      startTimeRef.current = Date.now();
-    }
+    return () => {
+      clearExistingTimeout();
+    };
+  }, []);
 
-    if (navigation.state === "idle" && showLoader) {
-      const elapsed = Date.now() - (startTimeRef.current ?? 0);
-
-      if (elapsed >= minTime) {
-        setShowLoader(false);
-      } else {
-        const remaining = minTime - elapsed;
-        const timeout = setTimeout(() => {
-          setShowLoader(false);
-        }, remaining);
-
-        return () => clearTimeout(timeout);
-      }
-    }
-  }, [navigation.state, minTime, showLoader]);
-
-  return showLoader;
+  return [showLoader, triggerLoading];
 }

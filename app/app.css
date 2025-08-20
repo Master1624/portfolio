@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "transition-style";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -12,4 +11,26 @@
 body {
   @apply bg-white text-slate-950 dark:bg-slate-950 dark:text-gray-100;
   transition: background-color 0.3s, color 0.3s;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }
