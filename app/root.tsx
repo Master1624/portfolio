@@ -2,18 +2,19 @@ import {
   isRouteErrorResponse,
   Links,
   Meta,
-  Outlet,
   Scripts,
   ScrollRestoration,
+  useOutlet,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./i18n";
 import "./app.css";
 import { Topbar } from "./components/Topbar";
-import { useLoading } from "./hooks/useLoading";
 import { Loader } from "./components/Loader";
 import { ThemeProvider } from "./contexts/themeContext";
+import { Suspense, useRef } from "react";
+import { LoaderProvider, useLoader } from "./contexts/loaderContext";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -46,13 +47,27 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+function LoaderHost() {
+  const { showLoader } = useLoader();
+  return showLoader ? <Loader /> : null;
+}
+
 export default function App() {
-  const showLoader = useLoading();
+  const currentOutlet = useOutlet();
+  const nodeRef = useRef(null);
   return (
     <ThemeProvider>
-      {showLoader && <Loader />}
-      <Topbar />
-      <Outlet />
+      <LoaderProvider>
+        <>
+          <LoaderHost />
+          <Suspense fallback={<Loader />}>
+            <Topbar />
+            <div ref={nodeRef} className="page">
+              {currentOutlet ?? <></>}
+            </div>
+          </Suspense>
+        </>
+      </LoaderProvider>
     </ThemeProvider>
   );
 }

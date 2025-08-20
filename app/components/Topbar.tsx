@@ -2,6 +2,7 @@ import { Button, Card, CardContent } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router";
 import { navbarLinks } from "~/constants/links";
+import { useLoader } from "~/contexts/loaderContext";
 import { useTheme } from "~/contexts/themeContext";
 
 export function Topbar() {
@@ -10,6 +11,8 @@ export function Topbar() {
   const { i18n, t } = useTranslation();
   const { pathname } = useLocation();
 
+  const { triggerLoading } = useLoader();
+
   const [homeButton, ...rest] = navbarLinks;
 
   const otherLanguage = Object.keys(i18n.options.resources || {}).find(
@@ -17,12 +20,15 @@ export function Topbar() {
   );
 
   const handleLanguageChange = async () => {
-    await navigate(pathname, { replace: true });
+    await navigate(pathname, {
+      replace: true,
+      state: { language: otherLanguage },
+    });
     i18n.changeLanguage(otherLanguage);
   };
 
   return (
-    <Card className="fixed top-0 w-full z-10 dark:bg-slate-950! bg-slate-50!">
+    <Card className="fixed top-0 w-full z-10 dark:bg-slate-900! bg-slate-50!">
       <CardContent className="flex w-full justify-between items-center">
         <Button className=" dark:text-white!">
           <Link to={homeButton.path}>{t(homeButton.translationKey)}</Link>
@@ -41,7 +47,13 @@ export function Topbar() {
           >
             {theme === "light" ? "🌙" : "☀️"}
           </Button>
-          <Button className=" dark:text-white!" onClick={handleLanguageChange}>
+          <Button
+            className=" dark:text-white!"
+            onClick={() => {
+              triggerLoading();
+              handleLanguageChange();
+            }}
+          >
             {otherLanguage}
           </Button>
         </div>
