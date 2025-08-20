@@ -4,8 +4,10 @@ import {
   Meta,
   Scripts,
   ScrollRestoration,
+  useLocation,
   useOutlet,
 } from "react-router";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 import type { Route } from "./+types/root";
 import "./i18n";
@@ -53,20 +55,29 @@ function LoaderHost() {
 }
 
 export default function App() {
+  const location = useLocation();
   const currentOutlet = useOutlet();
   const nodeRef = useRef(null);
   return (
     <ThemeProvider>
       <LoaderProvider>
-        <>
-          <LoaderHost />
-          <Suspense fallback={<Loader />}>
-            <Topbar />
-            <div ref={nodeRef} className="page">
-              {currentOutlet ?? <></>}
-            </div>
-          </Suspense>
-        </>
+        <LoaderHost />
+        <SwitchTransition>
+          <CSSTransition
+            key={location.pathname}
+            nodeRef={nodeRef}
+            timeout={300}
+            classNames="page"
+            unmountOnExit
+          >
+            <Suspense fallback={<Loader />}>
+              <Topbar />
+              <div ref={nodeRef} className="page">
+                {currentOutlet ?? <></>}
+              </div>
+            </Suspense>
+          </CSSTransition>
+        </SwitchTransition>
       </LoaderProvider>
     </ThemeProvider>
   );

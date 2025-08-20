@@ -5,19 +5,15 @@ import { Link } from "react-router";
 export function Welcome() {
   const { t } = useTranslation();
   return (
-    <div
-      transition-style="in:circle:bottom-right"
-      className="flex flex-col items-center justify-center h-screen space-y-2"
-    >
+    <div className="flex flex-col items-center justify-center h-screen space-y-2">
       <div>
         <h1>{t("welcome.title")}</h1>
         <p>{t("welcome.description")}</p>
       </div>
       <div>
         <Button>
-          <Link to="/about">About</Link>
+          <Link to="/about">{t('common.about')}</Link>
         </Button>
-        <Button>Botón 2</Button>
       </div>
     </div>
   );
