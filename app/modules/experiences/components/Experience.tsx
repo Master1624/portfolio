@@ -28,7 +28,7 @@ export function Experience({ experience }: { experience: ExperienceType }) {
           <div className="flex flex-row flex-wrap items-center justify-center mt-2 space-x-2 gap-2">
             {experience.technologies.map((technology, index) => (
               <Chip
-                className="dark:text-slate-200! dark:font-semibold"
+                className="dark:text-slate-200! font-semibold"
                 variant="outlined"
                 key={index}
                 label={technology}
