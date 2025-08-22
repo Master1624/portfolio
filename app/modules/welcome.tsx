@@ -11,8 +11,11 @@ export function Welcome() {
         <p>{t("welcome.description")}</p>
       </div>
       <div>
-        <Button>
+        <Button className="dark:text-white! font-bold!">
           <Link to="/about">{t('common.about')}</Link>
+        </Button>
+        <Button className="dark:text-white! font-bold!">
+          <Link to="/experiences">{t('common.experiences')}</Link>
         </Button>
       </div>
     </div>
