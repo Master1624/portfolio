@@ -12,7 +12,7 @@ export function Experiences() {
             {t("common.experiences")}
           </h1>
         </div>
-        <div className="flex flex-row flex-wrap content-center justify-center gap-7 overflow-y-auto @max-[796px]:mt-20">
+        <div className="flex flex-row flex-wrap content-center justify-center gap-7 overflow-y-auto @max-[796px]:mt-20 h-screen w-screen">
           {experiences.map((experience) => (
             <Experience key={experience.company} experience={experience} />
           ))}
