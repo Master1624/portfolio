@@ -1,6 +1,12 @@
+export enum CompanyNames {
+  SIMETRIK = "Simetrik",
+  INNOVA = "Innova",
+  TWNEL = "Twnel",
+}
+
 export const experiences = [
   {
-    company: "Simetrik",
+    company: CompanyNames.SIMETRIK,
     position: "Frontend Developer",
     startDate: "2024-04",
     endDate: "2025-05",
@@ -9,10 +15,10 @@ export const experiences = [
     methodology: "Agile",
     location: "Remote",
     url: "https://www.simetrik.com/",
-    logo: "https://www.simetrik.com/images/logo.svg",
+    logo: "../public/cropped.jpg",
   },
   {
-    company: "Innova",
+    company: CompanyNames.INNOVA,
     position: "Frontend Engineer",
     startDate: "2022-07",
     endDate: "2024-04",
@@ -24,7 +30,7 @@ export const experiences = [
     logo: "https://innovapps.net/wp-content/uploads/logo.svg",
   },
   {
-    company: "Twnel",
+    company: CompanyNames.TWNEL,
     position: "Software Developer",
     startDate: "2021-01",
     endDate: "2022-07",
