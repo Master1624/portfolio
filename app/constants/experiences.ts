@@ -15,7 +15,7 @@ export const experiences = [
     methodology: "Agile",
     location: "Remote",
     url: "https://www.simetrik.com/",
-    logo: "../public/cropped.jpg",
+    logo: "../cropped.jpg",
   },
   {
     company: CompanyNames.INNOVA,
