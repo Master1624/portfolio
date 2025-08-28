@@ -5,9 +5,11 @@
   },
   "common": {
     "about": "About",
+    "contact": "Contact",
     "experiences": "Experiences",
     "home": "Home",
-    "loading": "Loading"
+    "loading": "Loading",
+    "send": "Send"
   },
   "welcome": {
     "description": "I'm a frontend developer with experience in React and TypeScript.",

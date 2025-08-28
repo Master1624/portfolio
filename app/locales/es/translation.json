@@ -5,9 +5,11 @@
   },
   "common": {
     "about": "Acerca de",
+    "contact": "Contacto",
     "experiences": "Experiencias",
     "home": "Inicio",
-    "loading": "Cargando"
+    "loading": "Cargando",
+    "send": "Enviar"
   },
   "welcome": {
     "description": "Soy un desarrollador frontend con experiencia en React y TypeScript.",
