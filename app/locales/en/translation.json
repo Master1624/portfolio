@@ -11,6 +11,14 @@
     "loading": "Loading",
     "send": "Send"
   },
+  "contact": {
+    "form": {
+      "email": "Email",
+      "message": "Message",
+      "name": "Full Name"
+    },
+    "title": "Contact me"
+  },
   "welcome": {
     "description": "I'm a frontend developer with experience in React and TypeScript.",
     "title": "LET ME INTRODUCE MYSELF! MY NAME IS JUAN DAVID PALADINES AMAYA."

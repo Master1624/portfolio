@@ -1,13 +1,9 @@
-import { Button } from "@mui/material";
+import { ContactForm } from "./components/ContactForm";
 
 export function Contact() {
   return (
-    <div className="flex flex-col justify-items-center items-center h-screen">
-      <form action="" className="flex flex-col h-screen justify-center gap-4">
-        <Button className="dark:text-white!" type="submit">
-          Enviar
-        </Button>
-      </form>
+    <div className="grid grid-cols-2 justify-items-center items-center h-screen p-6 overflow-hidden">
+      <ContactForm />
     </div>
   );
 }
